@@ -2,6 +2,10 @@
 Copia el repo y dentro de la carpeta ejecuta "npm install", cuando termine corre el proyecto con "npm start"
 El usuario y la password del admin es "admin" "1234"
 
+!! Por si no jala aqui estan algunas dependecias !!
+npm install axios @fortawesome/fontawesome-free
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
