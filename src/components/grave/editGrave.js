@@ -74,7 +74,7 @@ export function EditGraveModal({ grave, blocks }) {
             }
         });
         setSections(currentSections);
-    }, [numBlock]);
+    }, [numBlock, blocks]);
 
     useEffect(() => {
         setShowInputs(true);
@@ -85,7 +85,7 @@ export function EditGraveModal({ grave, blocks }) {
             }
         });
         setRows(currentRow);
-    }, [numSection]);
+    }, [numSection, sections]);
 
     return (
         <div

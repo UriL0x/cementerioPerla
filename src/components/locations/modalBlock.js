@@ -133,8 +133,12 @@ export function BlockModal({ block }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    setSections(block.sections || []);
-  }, [block]);
+    if (Array.isArray(block.sections)) {
+      setSections(block.sections);
+    } else {
+      setSections([]);
+    }
+  }, [block.sections]);
 
   const handleDeleteRow = async (sectionId, rowId) => {
     try {
