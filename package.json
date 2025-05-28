@@ -2,8 +2,9 @@
   "name": "cementerio",
   "version": "0.1.0",
   "private": true,
-   "homepage": "https://UriL0x/cementerioPerla",
+  "homepage": "https://UriL0x/cementerioPerla",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
