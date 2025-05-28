@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getTokenOfSession } from "../utils/session";
 
-let BASE_ROUTE = 'http://localhost:8000/cementerio/api/';
+let BASE_ROUTE = 'https://urubio0.pythonanywhere.com/cementerio/api/';
 
 // Metodos para bloques
 export function getAllBlocks() {

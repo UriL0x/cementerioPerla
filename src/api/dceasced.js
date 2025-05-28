@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getTokenOfSession } from "../utils/session";
 
-export const BASE_ROUTE = 'http://localhost:8000/cementerio/api/';
+export const BASE_ROUTE = 'https://urubio0.pythonanywhere.com/cementerio/api/';
 
 export function getAllDceasced() {
     return axios.get(BASE_ROUTE + 'dceasced/', {

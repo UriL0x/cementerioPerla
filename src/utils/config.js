@@ -1,1 +1,1 @@
-export const API_ROUTE = 'localhost:8000/';
+export const API_ROUTE = 'https://urubio0.pythonanywhere.com/';
