@@ -13,6 +13,12 @@ import { checkSession } from "../../utils/session.js";
 import { ChargeCircle, NoData } from "../../components/charge.js";
 
 export default function GravesPanel() {
+    const [filters, setFilters] = useState({
+        num: "",
+        row: "",
+        section: "",
+        block: ""
+    });
     const [data, setData] = useState([]);
     const [blocks, setBlocks] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -21,29 +27,42 @@ export default function GravesPanel() {
         const fetchData = async () => {
             try {
                 const res = await getAllGraves();
-                console.log(res.data);
                 setData(res.data);
                 setLoading(false);
             } catch (error) {
                 console.error("Error al obtener datos:", error);
             }
         };
-        fetchData();
 
         const getBlocks = async () => {
             try {
                 const res = await getAllBlocks();
-                console.log(res.data);
                 setBlocks(res.data);
             } catch (error) {
-                console.error("Error al obtener datos:", error);
+                console.error("Error al obtener bloques:", error);
             }
         };
+
+        fetchData();
         getBlocks();
     }, []);
 
-    let editModal = data.map((grave) => (
-        <EditGraveModal key={`modal-${grave.id}`} grave={grave} blocks={blocks}/>
+    const handleFilterChange = (e) => {
+        setFilters({
+            ...filters,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const filteredData = data.filter((d) =>
+        String(d.num).includes(filters.num) &&
+        String(d.location?.row || "").toLowerCase().includes(filters.row.toLowerCase()) &&
+        String(d.location?.section || "").toLowerCase().includes(filters.section.toLowerCase()) &&
+        String(d.location?.block || "").toLowerCase().includes(filters.block.toLowerCase())
+    );
+
+    const editModal = data.map((grave) => (
+        <EditGraveModal key={`modal-${grave.id}`} grave={grave} blocks={blocks} />
     ));
 
     if (!checkSession()) {
@@ -57,71 +76,101 @@ export default function GravesPanel() {
             <main className="container py-4">
                 <section className="card bounce-right">
                     <div className="card-body">
-                        <h2 className="card-title h4 mb-4 text-white fs-2 spook-font">Administrar tumbas</h2>
-
-                        {/* Acciones: Agregar */}
-                        <div className="container-fluid d-flex flex-wrap justify-content-between mb-3">
+                        <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
                             <div className="">
-                                <img src="/media/grave1.png" className="icon-panel"/>
+                                <h2 className="text-white fs-2 spook-font mb-3">Administrar tumbas</h2>
+                                <img src="/media/grave1.png" className="icon-panel" alt="icono" />
                             </div>
-                            <div className="">
-                                <button
-                                    className="btn btn-primary ms-3"
-                                    data-bs-toggle="modal"
-                                    data-bs-target={"#addGraveModal"}
-                                >
-                                    Agregar tumbas +
-                                </button>
-                                <AddGraveModal blocks={blocks}/>
-                            </div>
+                            <button
+                                className="btn btn-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target={"#addGraveModal"}
+                            >
+                                Agregar tumbas +
+                            </button>
                         </div>
-  
-                        {loading ? 
-                                (<div>
-                                    <ChargeCircle/>
-                                </div>): (  
-                        <div className="table-responsive">
-                            <table className="table table-bordered table-striped">
-                            <thead className="table-light">
-                                <tr>
-                                    <th>Número</th>
-                                    <th>Estado</th>
-                                    <th>Fila</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data.map((grave) => (
-                                    <tr key={grave.id}>
-                                        <td>{grave.num}</td>
-                                        <td>{grave.is_busy ? "Ocupada" : "Libre"}</td>
-                                        <td>{grave.row?.num || "No tiene fila"}</td>
-                                        <td>
-                                            <button
-                                                className="btn btn-sm btn-outline-primary me-2"
-                                                data-bs-toggle="modal"
-                                                data-bs-target={`#editGraveModal${grave.id}`}
-                                            >
-                                                Editar
-                                            </button>
-                                            <DeleteBtn deleteFunction={deleteGraves} id={grave.id} />
-                                        </td>
-                                    </tr>
-                                ))}
-                                {data.length === 0 && (
-                                    <tr>
-                                        <td colSpan="6" className="text-center">
-                                            <NoData message={"No hay tumbas registradas"}/>
-                                        </td>
-                                    </tr>
-                                )}
-                            </tbody>
-                        </table>
 
-                            {/* Modales para editar */}
-                            {editModal}
-                        </div>)}
-                    </div> 
+
+                        {loading ? (
+                            <ChargeCircle />
+                        ) : (
+                            <div className="table-responsive">
+                                <div className="d-flex  gap-3 mb-3">
+                                    <input
+                                        type="text"
+                                        name="num"
+                                        className="form-control"
+                                        placeholder="Buscar por número"
+                                        value={filters.num}
+                                        onChange={handleFilterChange}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="row"
+                                        className="form-control"
+                                        placeholder="Buscar por fila"
+                                        value={filters.row}
+                                        onChange={handleFilterChange}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="section"
+                                        className="form-control"
+                                        placeholder="Buscar por cuadro"
+                                        value={filters.section}
+                                        onChange={handleFilterChange}
+                                    />
+                                    <input
+                                        type="text"
+                                        name="block"
+                                        className="form-control"
+                                        placeholder="Buscar por manzana"
+                                        value={filters.block}
+                                        onChange={handleFilterChange}
+                                    />
+                                </div>
+
+                                <table className="table table-bordered table-striped">
+                                    <thead className="table-light">
+                                        <tr>
+                                            <th>Número</th>
+                                            <th>Estado</th>
+                                            <th>Locación</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {filteredData.map((grave) => (
+                                            <tr key={grave.id}>
+                                                <td>{grave.num}</td>
+                                                <td>{grave.is_busy ? "Ocupada" : "Libre"}</td>
+                                                <td>{`Fila ${grave.location?.row || "?"}, Cuadro ${grave.location?.section || "?"}, Manzana ${grave.location?.block || "?"}`}</td>
+                                                <td>
+                                                    <button
+                                                        className="btn btn-sm btn-outline-primary me-2"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target={`#editGraveModal${grave.id}`}
+                                                    >
+                                                        Editar
+                                                    </button>
+                                                    <DeleteBtn deleteFunction={deleteGraves} id={grave.id} />
+                                                </td>
+                                            </tr>
+                                        ))}
+                                        {filteredData.length === 0 && (
+                                            <tr>
+                                                <td colSpan="4" className="text-center">
+                                                    <NoData message={"No hay tumbas que coincidan con los filtros"} />
+                                                </td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+
+                                {editModal}
+                            </div>
+                        )}
+                    </div>
                 </section>
             </main>
         </div>

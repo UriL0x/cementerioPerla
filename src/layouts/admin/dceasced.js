@@ -126,7 +126,7 @@ export function DceascedPanel() {
                                             <th>Apellidos</th>
                                             <th>Fecha de nacimiento</th>
                                             <th>Fecha de defunción</th>
-                                            <th>Tumba</th>
+                                            <th>Locacion</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
@@ -137,7 +137,7 @@ export function DceascedPanel() {
                                                 <td>{d.dceasced.second_name}</td>
                                                 <td>{d.dceasced.date_of_born}</td>
                                                 <td>{d.dceasced.date_of_death}</td>
-                                                <td>{d.dceasced.grave?.num}</td>
+                                                <td>{d.dceasced.location}</td>
                                                 <td>
                                                     <button
                                                         className="btn btn-sm btn-outline-success me-2"

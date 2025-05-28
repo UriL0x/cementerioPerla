@@ -33,7 +33,7 @@ export default function Login() {
         } catch (err) {
             setLoading(false);
             setError(true);
-            setMessage(err.request?.data?.error || 'Algo salió mal, inténtelo de nuevo');
+            setMessage(err.request?.data?.error || 'Credenciales invalidas');
         }
     };
 
