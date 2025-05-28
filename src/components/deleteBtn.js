@@ -5,7 +5,6 @@
     hacerla llamada a la api y el otro es el id.
 */
 
-import { InfoModal } from "./modals";
 import { Modal } from 'bootstrap';
 import { useRef, useState } from "react";
 

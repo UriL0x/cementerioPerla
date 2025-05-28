@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { editGrave } from "../../api/graves.js";
-import { NoData } from "../charge.js";
 
 export function EditGraveModal({ grave, blocks }) {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const [showLocationsInputs, setshowLocationsInputs] = useState(false);
-    const [errors, setErrors] = useState({});
-    const [errorMessage, setErrorMessage] = useState("");
     const [showInputs, setShowInputs] = useState(false);
-    const [noContent, setNoContent] = useState(null);
 
     const [sections, setSections] = useState([]);
     const [rows, setRows] = useState([]);
@@ -18,7 +14,6 @@ export function EditGraveModal({ grave, blocks }) {
     const [numBlock, setNumBlock] = useState(null);
     const [numSection, setNumSection] = useState(null);
     const [numRow, setNumRow] = useState(null);
-    const [numGrave, setNumGrave] = useState("");
 
     const [isBusy, setIsBusy] = useState(false);
     const [num, setNumero] = useState("");

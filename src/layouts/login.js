@@ -45,7 +45,7 @@ export default function Login() {
                     <p className="fw-bold w-100 text-center fs-1 spook-font text-white">Iniciar sesión</p>
                 
                     <div className="d-flex justify-content-center">
-                        <img src="/media/gravepanel.png"/>
+                        <img src="/media/gravepanel.png" alt=""/>
                     </div>
     
 

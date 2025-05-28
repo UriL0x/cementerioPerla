@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { faChurch, faL, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { addBlock, deleteBlock, getAllBlocks } from "../../api/locations.js";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { deleteBlock, getAllBlocks } from "../../api/locations.js";
 import { BlockModal } from "../../components/locations/modalBlock.js";
 import { faInfo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,7 +44,7 @@ export default function LocationsPanel() {
                         {/* Acciones: Agregar */}
                         <div className="container-fluid d-flex flex-wrap justify-content-between mb-3">
                             <div className="">
-                                <img src="/media/church2.svg" className="icon-panel"/>
+                                <img src="/media/church2.svg" className="icon-panel" alt=""/>
                             </div>
                             <div className="">
                                 <button
@@ -69,7 +69,7 @@ export default function LocationsPanel() {
                                         style={{ width: '10rem' }}
                                     >
                                         <div className="block-card text-center">
-                                            <img src="/media/church.png"/>
+                                            <img src="/media/church.png" alt=""/>
 
                                             <div className="content">
                                                 <h5 className="card-title pb-2">Manzana {block.num}</h5>

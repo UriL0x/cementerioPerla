@@ -3,12 +3,11 @@
   gestionar una manzana
 */
 
-import { faTrash, faPlay, faX, faPlus, faPen } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faX, faPlus} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useRef, useState } from "react";
-import { addRow, deleteRow, updateRow, editRow, addSection, deleteSection } from "../../api/locations"; 
+import { useEffect, useState } from "react";
+import { addRow, deleteRow, editRow, addSection, deleteSection } from "../../api/locations"; 
 import { NoData } from "../charge";
-import { Collapse } from 'bootstrap';
 import { Accordion, Button } from 'react-bootstrap';
 
 const BtnAdd = ({ section, onRowAdded }) => {
@@ -254,7 +253,7 @@ export function BlockModal({ block }) {
                           variant="danger"
                           size="sm"
                           onClick={(e) => {
-                            e.stopPropagation(); // evita toggle al hacer clic en eliminar
+                            e.stopPropagation(); 
                             handleDeleteSection(section);
                           }}
                         >

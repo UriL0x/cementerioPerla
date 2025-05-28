@@ -5,7 +5,6 @@
 
 import { useEffect, useState } from "react";
 import { addGrave } from "../../api/graves.js";
-import { getAllBlocks } from "../../api/locations";
 
 export function AddGraveModal({ blocks }) {
     const [errors, setErrors] = useState({});

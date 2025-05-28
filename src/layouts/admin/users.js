@@ -3,9 +3,6 @@ import Header from "../header";
 import { AddUserModal } from "../../components/users/addModal.js";
 import { getAllUsers, deleteUser } from "../../api/users.js";
 import { EditUserModal } from "../../components/users/editUser.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { InfoModal, ReportModal } from "../../components/modals.js";
 import { checkSession, getDataOfSession } from "../../utils/session.js";
 import { AscendUser } from "../../components/modals/ascendUser.js";
 import { ChargeCircle, NoData } from "../../components/charge.js";
@@ -55,7 +52,7 @@ export function UsersPanel() {
 
                         <div className="container-fluid d-flex flex-wrap justify-content-between mb-3">
                             <div>
-                                <img src="/media/death.png" className="icon-panel" />
+                                <img src="/media/death.png" className="icon-panel" alt=""/>
                             </div>
                             <div>
                                 <button

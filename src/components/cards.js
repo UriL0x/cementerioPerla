@@ -2,7 +2,7 @@
 export function Card({title, page, icon}) {
     return (
         <a  href={[page]} class="  border-0 text-center card-panel">
-            <img src="/media/cloud.png"/>
+            <img src="/media/cloud.png" alt=""/>
             <div class="content">
                 {icon}
                 <h5 class="card-title fw-bold spook-font text-white">{title}</h5>

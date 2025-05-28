@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
-import { getAllUsers, deleteUser } from "../../api/users.js";
 import { EditDceascedModal } from "../../components/dceasced/editDceasced.js";
 import { AddDeceasedModal } from "../../components/dceasced/addDceasced.js";
-import { faSkull } from "@fortawesome/free-solid-svg-icons";
 import DeleteBtn from "../../components/deleteBtn.js";
 import { deleteDceasced, getAllDceasced, getAllDocs } from "../../api/dceasced.js";
 import Header from "../header.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { DocumentsModal, ReportModal } from "../../components/modals.js";
 import { checkSession } from "../../utils/session.js";
 import { ChargeCircle, NoData } from "../../components/charge.js";
@@ -87,7 +83,7 @@ export function DceascedPanel() {
                         {/* Acciones */}
                         <div className="container-fluid d-flex flex-wrap justify-content-between mb-3">
                             <div>
-                                <img src="/media/skull3.png" className="icon-panel"/>
+                                <img src="/media/skull3.png" className="icon-panel" alt=""/>
                             </div>
                             <div>
                                 <button

@@ -2,7 +2,7 @@ export function ChargeCircle() {
     return (
         <>
             <div className="w-100 text-center">
-                <img className="spookie-dance" src="/media/spookiedance.gif"/>
+                <img className="spookie-dance" src="/media/spookiedance.gif" alt=""/>
                 <p className="spook-font d-flex justify-content-center text-white fs-1">
                     <p className="me-2">Cargando info</p>
                     <span className="dot">.</span>
@@ -18,7 +18,7 @@ export function NoData({message}) {
     return (
         <>
             <div className="w-100 text-center">
-                <img className="spookie-dance" src="/media/skull.webp"/>
+                <img className="spookie-dance" src="/media/skull.webp" alt=""/>
                 <p className="spook-font d-flex justify-content-center text-white fs-1">
                     <p className="me-2">{message}</p>
                 </p>

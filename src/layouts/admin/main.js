@@ -34,20 +34,20 @@ export default function AdminPanel() {
             <Header/>
             <main className="p-2 text-center">
                 <section className="container-fluid main-page-content d-flex flex-wrap justify-content-center gap-4 p-4">
-                    <Card title={'Administrar Difuntos'} page={'/admin/difuntos'} icon={<img className="icon" src="/media/skull3.png"/>}/>
-                    <Card title={'Administrar Tumbas'} page={'/admin/tumbas'} icon={<img className="icon" src="/media/grave1.png"/>}/>
-                    <Card title={'Administrar Ubicaciones'} page={'/admin/ubicaciones'} icon={<img className="icon" src="/media/church2.svg"/>}/>
-                    {checkPrivileges() && <Card title={'Administrar Usuarios'} page={'/admin/usuarios'} icon={<img className="icon" src="/media/death.png"/>}/>}
+                    <Card title={'Administrar Difuntos'} page={'/admin/difuntos'} icon={<img className="icon" src="/media/skull3.png" alt=""/>}/>
+                    <Card title={'Administrar Tumbas'} page={'/admin/tumbas'} icon={<img className="icon" src="/media/grave1.png" alt=""/>}/>
+                    <Card title={'Administrar Ubicaciones'} page={'/admin/ubicaciones'} icon={<img className="icon" src="/media/church2.svg" alt=""/>}/>
+                    {checkPrivileges() && <Card title={'Administrar Usuarios'} page={'/admin/usuarios'} icon={<img className="icon" src="/media/death.png" alt=""/>}/>}
                 </section>
-                {showBats && <img className="bats" src="/media/gif/bats.gif"/>}
+                {showBats && <img className="bats" src="/media/gif/bats.gif" alt=""/>}
             </main>
-            <img className="web1" src="/media/web1.png"/>
+            <img className="web1" src="/media/web1.png" alt=""/>
             <footer>
                 {showElements && 
                 <>
-                    <img className={`pumpkins ${showElements ? 'left-pump' : ''}`} src="/media/pumpkins.png"/>
-                    <img className={`pumpkins1 ${showElements ? 'left-pump' : ''}`} src="/media/pumpkins.png"/>
-                    <img className={`pumpkins2 ${showElements ? 'left-pump' : ''}`} src="/media/pumpkins.png"/>
+                    <img className={`pumpkins ${showElements ? 'left-pump' : ''}`} src="/media/pumpkins.png" alt=""/>
+                    <img className={`pumpkins1 ${showElements ? 'left-pump' : ''}`} src="/media/pumpkins.png" alt=""/>
+                    <img className={`pumpkins2 ${showElements ? 'left-pump' : ''}`} src="/media/pumpkins.png" alt=""/>
                 </>
                 }
             </footer>

@@ -5,10 +5,10 @@ que hacen un poco de todo
 
 import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf"; 
-import { faL, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import * as XLSX from "xlsx";
 import autoTable from "jspdf-autotable";
-import { deleteDoc, getAllDceasced, getDocsDceased, uploadDoc } from "../api/dceasced";
+import { deleteDoc, getAllDceasced, uploadDoc } from "../api/dceasced";
 import { API_ROUTE } from "../utils/config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NoData } from "./charge";

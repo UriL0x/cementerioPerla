@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { addDceased, deleteDoc, editDceased } from "../../api/dceasced";
-import { API_ROUTE } from "../../utils/config";
+import { editDceased } from "../../api/dceasced";
 
 export function EditDceascedModal({ dceased }) {
     const [firstName, setFirstName] = useState("");

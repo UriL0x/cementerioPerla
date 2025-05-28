@@ -6,15 +6,13 @@ export function AscendUser({idModal, user}) {
         e.preventDefault();
         const sendData = async () => {
             try {
-                const response = await updateUserPrivileges(user);
-                closeSession()
+                await updateUserPrivileges(user);
+                closeSession();
                 window.location.href = '/iniciar_sesion';
             } catch (error) {}
         };
         sendData();
     };
-
-    console.log()
     
     return (
         <div

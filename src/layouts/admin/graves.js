@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
-import { getAllUsers, deleteUser } from "../../api/users.js";
 import { EditGraveModal } from "../../components/grave/editGrave.js";
-import { AddDeceasedModal } from "../../components/dceasced/addDceasced.js";
-import { faUser, faCross } from "@fortawesome/free-solid-svg-icons";
 import DeleteBtn from "../../components/deleteBtn.js";
-import { deleteDceasced, getAllDceasced } from "../../api/dceasced.js";
 import { deleteGraves, getAllGraves } from "../../api/graves.js";
-import { AddGraveModal } from "../../components/grave/addGrave.js";
 import Header from "../header.js";
 import { getAllBlocks } from "../../api/locations.js";
 import { checkSession } from "../../utils/session.js";
 import { ChargeCircle, NoData } from "../../components/charge.js";
+import { AddGraveModal } from '../../components/grave/addGrave.js'
 
 export default function GravesPanel() {
     const [filters, setFilters] = useState({
@@ -79,7 +75,7 @@ export default function GravesPanel() {
                         <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
                             <div className="">
                                 <h2 className="text-white fs-2 spook-font mb-3">Administrar tumbas</h2>
-                                <img src="/media/grave1.png" className="icon-panel" alt="icono" />
+                                <img src="/media/grave1.png" className="icon-panel" alt="icono"/>
                             </div>
                             <button
                                 className="btn btn-primary"
@@ -88,6 +84,7 @@ export default function GravesPanel() {
                             >
                                 Agregar tumbas +
                             </button>
+                            <AddGraveModal blocks={blocks}/>
                         </div>
 
 

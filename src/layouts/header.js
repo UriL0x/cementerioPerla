@@ -1,7 +1,7 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { checkPrivileges, checkSession, closeSession } from '../utils/session';
+import { checkPrivileges, closeSession } from '../utils/session';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
     return (
         <header className='d-flex justify-content-between align-items-center'>
             <div className='d-flex align-items-center'>
-                <img className='grave-header' src='/media/grave.png'/>
+                <img className='grave-header' src='/media/grave.png' alt=''/>
                 <p className='fs-1 fw-bold creepster-font'>Panteon perla la paz</p>
             </div>
             <nav>
